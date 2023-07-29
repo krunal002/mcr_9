@@ -16,7 +16,7 @@ const Aside = () => {
         <NavLink to="/explore" className="navlink">
           <ExploreIcon /> Explore
         </NavLink>
-        <NavLink to="/explore" className="navlink">
+        <NavLink to="/playlist" className="navlink">
           <PlaylistAddIcon /> Playlists
         </NavLink>
         <NavLink to="/watch-later" className="navlink">

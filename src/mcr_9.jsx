@@ -4,6 +4,7 @@ import Landing from "./Pages/LandingPage/Landing";
 import Explore from "./Pages/ExplorePage/Explore";
 import Details from "./Pages/VideoDetails/Details";
 import WatchLater from "./Pages/WatchLater/WatchLater";
+import Playlist from "./Pages/Playlist/playlist";
 
 
 import { DataContext } from "./Context/DataContext";
@@ -17,6 +18,8 @@ const Mcr_9 = () => {
             <Route path="/explore" element={<Explore/>}/>
             <Route path="/details/:videoId" element={<Details/>}/>
             <Route path="/watch-later" element={<WatchLater/>}/>
+            <Route path="/playlist" element={<Playlist/>}/>
+
         </Routes>
     </div>
 }

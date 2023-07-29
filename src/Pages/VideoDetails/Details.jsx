@@ -5,20 +5,36 @@ import { useParams } from "react-router";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import WatchLaterOutlinedIcon from "@mui/icons-material/WatchLaterOutlined";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { DataContext } from "../../mcr_9";
 import Aside from "../../Components/Aside/Aside";
 import MoreVideos from "../../Components/MoreVideos/MoreVideos";
 import EditNoteModal from "../../Components/EditNoteModel";
+import AddNewNoteModal from "../../Components/AddNewNoteModal";
 
 const Details = () => {
   const { videoId } = useParams();
-  const { videoData, addToWL, removeFromWL } = useContext(DataContext);
+  const { videoData, setVideoData, addToWL, removeFromWL } =
+    useContext(DataContext);
 
   const VideoDetails = videoData.find(({ _id }) => _id === Number(videoId));
   const isWL = VideoDetails.watchLater;
+
+  const handleDelete = (note) => {
+    const updatedVideosData = videoData.map((video) =>
+      video._id === VideoDetails._id
+        ? {
+            ...video,
+            notes: video.notes.filter(
+              (currentNote) => currentNote.id !== note.id
+            ),
+          }
+        : video
+    );
+    setVideoData(updatedVideosData);
+  };
+
   return (
     <div className="details-container">
       <div className="left-container">
@@ -56,30 +72,50 @@ const Details = () => {
                     : addToWL(VideoDetails._id)
                 }
               >
-                {isWL ? <WatchLaterIcon /> : <WatchLaterOutlinedIcon />}
+                {isWL ? (
+                  <WatchLaterIcon sx={{ cursor: "pointer" }} />
+                ) : (
+                  <WatchLaterOutlinedIcon sx={{ cursor: "pointer" }} />
+                )}
               </div>
-              <div><PlaylistAddIcon /></div>
-              <EditNoteIcon />
+              <div>
+                <PlaylistAddIcon sx={{ cursor: "pointer" }} />
+              </div>
+              <div title="Add Note">
+                                    <AddNewNoteModal
+                                        currentvideo={VideoDetails}
+                                    />
+                                </div>
+
+
+
             </div>
           </div>
         </div>
 
         {/* <h2>My Notes</h2> */}
         <div>
-                        <h2 className="notes">My Notes:</h2>
-                        {VideoDetails.notes.map((note) => (
-                            <div key={note.id} className="note_container">
-                                <div>{note.content}</div>
-                                <div className="note_container_btns">
-                                    <EditNoteModal
-                                        currentvideo={VideoDetails}
-                                        note={note}
-                                    />
-                                    <DeleteIcon sx={{ cursor: "pointer" }} />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+          <h2 className="notes">My Notes:</h2>
+          
+          
+
+          {VideoDetails.notes.map((note) => (
+            <div key={note.id} className="note_container">
+              <div>{note.content}</div>
+              <div className="note_container_btns">
+                <EditNoteModal
+                  sx={{ cursor: "pointer" }}
+                  currentvideo={VideoDetails}
+                  note={note}
+                />
+                <DeleteIcon
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => handleDelete(note)}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div>
