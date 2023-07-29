@@ -1,0 +1,12 @@
+.aside-container{
+    padding: 1rem;
+    width: 100%;
+}
+.aside-container .navlink{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    padding: 0.5rem;
+}

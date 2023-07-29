@@ -1,12 +1,38 @@
-import { useContext } from "react"
-import { DataContext } from "../../mcr_9"
-import Videocard from "../../Cards/VideoCards/videoCard"
+import "./Explore.css"
+import { useContext, useState } from "react";
 
-const Explore = () =>{
-    const { videoData } = useContext(DataContext)
-    return <div className="explore-container">
-        <h1>Explore</h1>
-<Videocard data={videoData}/>
+import { DataContext } from "../../mcr_9";
+import Aside from "../../Components/Aside/Aside";
+import Videocard from "../../Cards/VideoCards/videoCard";
+
+const Explore = () => {
+  const { videoData } = useContext(DataContext);
+  const [exploreData, setExploreData] = useState(videoData);
+
+  const SearchHandler = (e) => {
+    setExploreData(
+      videoData.filter(({ title }) =>
+        title.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
+  };
+
+  return (
+    <div className="explore-container">
+      <div className="left-container">
+        <Aside/>
+      </div>
+      
+      <div>
+      <h1>Explore</h1>
+      
+      <div className="search-container">
+        <input type="search" placeholder="Search video by title" onChange={SearchHandler} />
+      </div>
+
+      <Videocard data={exploreData} />
+      </div>
     </div>
-}
-export default Explore
+  );
+};
+export default Explore;

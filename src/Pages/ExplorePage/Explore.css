@@ -1,0 +1,7 @@
+.explore-container{
+    display: flex;
+}
+.left-container{
+    flex: 100%;
+    /* background-color: black; */
+}

@@ -1,0 +1,17 @@
+.more-video{
+    padding: 1rem;
+}
+.more-video-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+.more-video-pri-container{
+    width: 100px;
+    height: 70px;
+}
+.more-video-sec-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
