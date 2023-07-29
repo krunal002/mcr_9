@@ -1,3 +1,4 @@
+import "./Details.css"
 import { useContext } from "react";
 import { useParams } from "react-router";
 
