@@ -3,6 +3,9 @@ import { Routes, Route } from "react-router";
 import Landing from "./Pages/LandingPage/Landing";
 import Explore from "./Pages/ExplorePage/Explore";
 
+
+import { DataContext } from "./Context/DataContext";
+export { DataContext }
 const Mcr_9 = () => {
     return <div className="app-container">
         <h1>MCR_9</h1>
