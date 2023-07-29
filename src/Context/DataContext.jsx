@@ -4,7 +4,7 @@ export const DataContext = createContext();
 
 export const DataContextHandler = ({ children }) => {
   const [ videoData, setVideoData ] = useState(videos)
-  const [ playlist, setPlaylist ] = useState([{newplaylist:[]}])
+  const [ playlist, setPlaylist ] = useState([{ name:"Music Video", desc:"my personal favorite", songs:[]}])
 
   const addToWL = (videoId) => {
     const updatedVideosData = videoData.map((video) =>
@@ -24,7 +24,7 @@ export const DataContextHandler = ({ children }) => {
   return (
     <div>
       <DataContext.Provider
-        value={{ videoData, setVideoData, addToWL, removeFromWL }}
+        value={{ videoData, playlist, setVideoData, setPlaylist, addToWL, removeFromWL }}
       > {children}</DataContext.Provider>
     </div>
   );

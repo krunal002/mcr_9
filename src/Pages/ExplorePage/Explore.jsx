@@ -7,15 +7,11 @@ import Videocard from "../../Cards/VideoCards/videoCard";
 
 const Explore = () => {
   const { videoData } = useContext(DataContext);
-  const [exploreData, setExploreData] = useState(videoData);
 
-  const SearchHandler = (e) => {
-    setExploreData(
-      videoData.filter(({ title }) =>
-        title.toLowerCase().includes(e.target.value.toLowerCase())
-      )
+  const [searchedText, setSearchedText] = useState("");
+    const searchedData = videoData.filter(({ title }) =>
+        title.toLowerCase().includes(searchedText.toLowerCase())
     );
-  };
 
   return (
     <div className="explore-container">
@@ -27,10 +23,10 @@ const Explore = () => {
       <h1>Explore</h1>
       
       <div className="search-container">
-        <input type="search" placeholder="Search video by title" onChange={SearchHandler} />
+        <input type="search" placeholder="Search video by title" onChange={(e) => setSearchedText(e.target.value)} />
       </div>
 
-      <Videocard data={exploreData} />
+      <Videocard data={searchedData} />
       </div>
     </div>
   );

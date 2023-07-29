@@ -19,7 +19,7 @@ const Aside = () => {
         <NavLink to="/explore" className="navlink">
           <PlaylistAddIcon /> Playlists
         </NavLink>
-        <NavLink to="/explore" className="navlink">
+        <NavLink to="/watch-later" className="navlink">
           <WatchLaterIcon /> Watch Later
         </NavLink>
       </aside>

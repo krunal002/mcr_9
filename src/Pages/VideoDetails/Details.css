@@ -1,3 +1,17 @@
 .details-container{
     display: flex;
 }
+
+.video-details-container{
+    border-bottom: 1px solid;
+}
+
+.details-info{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.detail-buttons{
+    display: flex;
+    gap: 0.5rem;
+}

@@ -10,7 +10,7 @@ const MoreVideos = () => {
         <div className="more-video-container">
           <div ><img src={video.thumbnail} alt="thumbnail" className="more-video-pri-container"/></div>
           <div className="more-video-sec-container">
-            <span>{video.title}</span>
+            <span><b>{video.title}</b></span>
             <span>{video.creator}</span>
           </div>
         </div>
