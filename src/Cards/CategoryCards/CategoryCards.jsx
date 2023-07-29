@@ -9,7 +9,7 @@ const CategoryCard = ({ data }) => {
       <div className="primary-category-container">
         {data.map((cat) => {
           return (
-            <div className="cat-card-container" onClick={() => navigate("/explore")}>
+            <div className="cat-card-container" onClick={() => navigate(`/`)}>
               <img src={cat.thumbnail} alt="thumbnail" />
               <span>{cat.category}</span>
             </div>
