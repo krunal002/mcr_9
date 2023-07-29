@@ -1,8 +1,11 @@
-import { categories} from "../../Data/CategoryData"
-import CategoryCard from "../../Cards/CategoryCards"
+import { categories } from "../../Data/CategoryData";
+import CategoryCard from "../../Cards/CategoryCards/CategoryCards";
 const Landing = () => {
-
-    return <div className="landing-container">
-        <CategoryCard/>
+  console.log(categories, "categories");
+  return (
+    <div className="landing-container">
+      <CategoryCard data={categories} />
     </div>
-}
+  );
+};
+export default Landing;

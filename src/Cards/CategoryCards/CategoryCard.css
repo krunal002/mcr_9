@@ -1,0 +1,13 @@
+.primary-category-container {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cat-card-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  /* border: 1px solid; */
+}
